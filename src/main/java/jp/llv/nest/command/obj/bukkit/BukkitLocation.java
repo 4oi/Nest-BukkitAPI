@@ -17,17 +17,19 @@
 package jp.llv.nest.command.obj.bukkit;
 
 import jp.llv.nest.command.Type;
+import jp.llv.nest.command.obj.Location3;
 import jp.llv.nest.command.obj.NestValueAdapter;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
  * @author toyblocks
  */
 @Type("Location")
-public class BukkitLocation extends NestValueAdapter<Location> {
+public class BukkitLocation extends NestValueAdapter<Location> implements Location3<Double, Location> {
     
     public BukkitLocation(Location e) {
         super(e);
@@ -49,7 +51,7 @@ public class BukkitLocation extends NestValueAdapter<Location> {
         value.setX(x);
     }
 
-    public double getX() {
+    public @NotNull Double getX() {
         return value.getX();
     }
 
@@ -61,7 +63,7 @@ public class BukkitLocation extends NestValueAdapter<Location> {
         value.setY(y);
     }
 
-    public double getY() {
+    public @NotNull Double getY() {
         return value.getY();
     }
 
@@ -73,7 +75,7 @@ public class BukkitLocation extends NestValueAdapter<Location> {
         value.setZ(z);
     }
 
-    public double getZ() {
+    public @NotNull Double getZ() {
         return value.getZ();
     }
 
