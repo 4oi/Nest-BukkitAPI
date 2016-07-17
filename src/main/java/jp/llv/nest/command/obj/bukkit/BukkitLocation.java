@@ -51,6 +51,7 @@ public class BukkitLocation extends NestValueAdapter<Location> implements Locati
         value.setX(x);
     }
 
+    @Override
     public @NotNull Double getX() {
         return value.getX();
     }
@@ -63,6 +64,7 @@ public class BukkitLocation extends NestValueAdapter<Location> implements Locati
         value.setY(y);
     }
 
+    @Override
     public @NotNull Double getY() {
         return value.getY();
     }
@@ -75,6 +77,7 @@ public class BukkitLocation extends NestValueAdapter<Location> implements Locati
         value.setZ(z);
     }
 
+    @Override
     public @NotNull Double getZ() {
         return value.getZ();
     }
