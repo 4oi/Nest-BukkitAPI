@@ -22,6 +22,6 @@ import org.bukkit.plugin.Plugin;
  *
  * @author toyblocks
  */
-public interface NestPlugin extends Plugin {
+public interface NestBukkitPlugin extends Plugin {
     
 }
