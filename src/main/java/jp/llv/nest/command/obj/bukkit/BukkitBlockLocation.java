@@ -21,56 +21,37 @@ import jp.llv.nest.command.exceptions.TypeMismatchException;
 import jp.llv.nest.command.obj.Location3;
 import jp.llv.nest.command.obj.NestValueAdapter;
 import org.bukkit.Location;
-import org.bukkit.World;
-import org.bukkit.block.Block;
-import org.jetbrains.annotations.NotNull;
 
 /**
  *
  * @author toyblocks
  */
-@Type("BukkitLocation3d")
-public class BukkitLocation extends NestValueAdapter<Location> implements Location3.Location3d<Location> {
-    
-    public BukkitLocation(Location e) {
-        super(e);
-    }
+@Type("BukkitLocation3i")
+public class BukkitBlockLocation extends NestValueAdapter<Location> implements Location3.Location3i<Location> {
 
-    public void setWorld(World world) {
-        value.setWorld(world);
-    }
-
-    public World getWorld() {
-        return value.getWorld();
-    }
-
-    public Block getBlock() {
-        return value.getBlock();
-    }
-
-    public void setX(double x) {
-        value.setX(x);
+    public BukkitBlockLocation(Location value) {
+        super(value);
     }
 
     @Override
-    public @NotNull Double getX() {
-        return value.getX();
+    public Long getX() {
+        return (long) super.value.getBlockX();
     }
 
     @Override
-    public @NotNull Double getY() {
-        return value.getY();
+    public Long getY() {
+        return (long) super.value.getBlockY();
     }
 
     @Override
-    public @NotNull Double getZ() {
-        return value.getZ();
+    public Long getZ() {
+        return (long) super.value.getBlockZ();
     }
 
     @Override
     public <T> T to(Class<T> toClass) throws TypeMismatchException {
-        return super.to(toClass, ifClass(Location3.Location3i.class, () -> {
-            return new BukkitBlockLocation(super.value);
+        return super.to(toClass, ifClass(Location3.Location3d.class, () -> {
+            return new BukkitLocation(super.value);
         }));
     }
     
